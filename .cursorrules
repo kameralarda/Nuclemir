@@ -1,0 +1,109 @@
+# Proje Geliştirme Kuralları
+
+## Genel Kurallar
+- Tüm kod yazımı UTF-8 karakter seti kullanılarak yapılmalıdır
+- Her dosya sonunda boş bir satır bırakılmalıdır
+- Satır sonları LF (Unix) formatında olmalıdır
+- Girinti (indentation) için 4 boşluk kullanılmalıdır
+- Maksimum satır uzunluğu 120 karakteri geçmemelidir
+
+## Frontend (React) Kuralları
+- Component isimleri PascalCase olmalıdır (örn: UserProfile)
+- Props interface'leri ComponentNameProps şeklinde isimlendirilmelidir
+- Styled components için StyledComponentName formatı kullanılmalıdır
+- Hook isimleri use prefix'i ile başlamalıdır
+- CSS class isimleri kebab-case formatında olmalıdır
+- Component dosyaları .tsx uzantılı olmalıdır
+- Util fonksiyonları .ts uzantılı olmalıdır
+- Her component kendi klasöründe bulunmalıdır
+- Test dosyaları .test.tsx veya .test.ts uzantılı olmalıdır
+
+## Backend (Laravel) Kuralları
+- Controller isimleri PascalCase ve Controller suffix'i ile olmalıdır
+- Model isimleri tekil ve PascalCase olmalıdır
+- Migration isimleri snake_case olmalıdır
+- Route isimleri kebab-case olmalıdır
+- Service isimleri PascalCase ve Service suffix'i ile olmalıdır
+- Repository isimleri PascalCase ve Repository suffix'i ile olmalıdır
+- Değişken isimleri camelCase olmalıdır
+- Method isimleri camelCase olmalıdır
+
+## Git Kuralları
+- Commit mesajları Türkçe yazılmalıdır
+- Branch isimleri feature/, bugfix/, hotfix/ prefix'leri ile başlamalıdır
+- Her feature için ayrı branch açılmalıdır
+- Main branch'e direkt push yapılmamalıdır
+- Pull request'ler en az bir reviewer tarafından onaylanmalıdır
+
+## Kod Organizasyonu
+### Frontend Klasör Yapısı
+```
+src/
+├── components/
+├── pages/
+├── hooks/
+├── services/
+├── utils/
+├── types/
+├── assets/
+└── styles/
+```
+
+### Backend Klasör Yapısı
+```
+app/
+├── Http/
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Requests/
+├── Models/
+├── Services/
+├── Repositories/
+└── Exceptions/
+```
+
+## Güvenlik Kuralları
+- .env dosyaları asla git'e push edilmemelidir
+- API anahtarları ve hassas bilgiler environment variable olarak saklanmalıdır
+- Kullanıcı girişleri her zaman validate edilmelidir
+- SQL injection'a karşı prepared statement kullanılmalıdır
+- XSS saldırılarına karşı input sanitization yapılmalıdır
+
+## Performans Kuralları
+- Gereksiz re-render'ları önlemek için React.memo kullanılmalıdır
+- Büyük resimler optimize edilmelidir
+- API istekleri için caching mekanizması kullanılmalıdır
+- N+1 query problemi önlenmelidir
+- Lazy loading uygulanmalıdır
+
+## Test Kuralları
+- Her component için unit test yazılmalıdır
+- Her API endpoint'i için integration test yazılmalıdır
+- Test coverage %80'in altına düşmemelidir
+- E2E testler Cypress ile yazılmalıdır
+- Mock data test klasöründe saklanmalıdır
+
+## Dokümantasyon
+- API endpoint'leri Swagger/OpenAPI ile dokümante edilmelidir
+- Kompleks fonksiyonlar için JSDoc/PHPDoc kullanılmalıdır
+- README.md güncel tutulmalıdır
+- Deployment adımları dokümante edilmelidir
+
+## Deployment Kuralları
+- Staging ortamına deploy edilmeden production'a geçilmemelidir
+- CI/CD pipeline'ları kullanılmalıdır
+- Deployment öncesi tüm testler geçmelidir
+- Database migration'ları kontrol edilmelidir
+- Backup alınmalıdır
+
+## Code Review Kuralları
+- Pull request'ler küçük ve odaklı olmalıdır
+- Code review yorumları yapıcı ve açıklayıcı olmalıdır
+- Review'da bulunan sorunlar düzeltilmeden merge yapılmamalıdır
+- Self-review yapılmalıdır
+
+## Monitoring ve Logging
+- Error logging için uygun araçlar kullanılmalıdır
+- Performance monitoring yapılmalıdır
+- User activity logging implementasyonu yapılmalıdır
+- API request/response logging yapılmalıdır 
